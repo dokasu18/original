@@ -42,13 +42,15 @@
 | title       | string     | null: false                    |
 | advice_text | text       | null: false                    |
 | hour_id     | integer    | null: false                    |
+| food_first  | text       | null: false                    |
+| food_second | text       |                                |
+| spice       | text       | null: false                    |
 | user        | references | null: false, foreign_key: true |
 
 ### Association
 - belongs_to :user, through: :favorites
 - has_many :comments
 - has_one :step
-- has_one :material
 - has_many :favorites
 
 ## comments テーブル
@@ -74,16 +76,6 @@
 ### Association
 - belongs_to :menu
 
-## materials テーブル
-
-| Column        | Type       | Options                        |
-| ------------- | ---------- | ------------------------------ |
-| food          | text       | null: false                    |
-| food_quantity | integer    | null: false                    |
-| menu          | references | null: false, foreign_key: true |
-
-### Association
-- belongs_to :menu
 
 ## favorites テーブル
 
