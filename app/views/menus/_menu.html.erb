@@ -1,0 +1,11 @@
+<div class="card">
+  <%=link_to image_tag(menu.image, class: "card__img"), menus_path(menu.id) %>
+  <div class="card__body">
+    <%= link_to menu.title, menus_path(menu.id), class: :card__title%>
+    <p class="card__summary">
+      <%= menu.food_first %>,
+      <%= menu.food_second %>
+    </p>
+    <%= link_to "by #{menu.user.nickname}", menus_path(menu.user_id), class: :card__user %>
+  </div>
+</div>

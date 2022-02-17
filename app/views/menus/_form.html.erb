@@ -1,0 +1,59 @@
+<%= form_with(model: menu, local: true) do |f| %>
+  <div class="field">
+    <%= f.label :title, "レシピ名" %><br />
+    <%= f.text_field :title, id:"menu_title" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :image, "レシピの画像" %><br />
+    <%= f.file_field :image, id:"menu_image" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :advice_text, "レシピの説明" %><br />
+    <%= f.text_area :advice_text, class: :form__text, id:"menu_advice_text" %>
+  </div>
+
+  <%= f.collection_select(:hour_id, Hour.all, :id, :name, {}, {class:"select-box", id:"menu-hour"}) %>
+
+  <div class="field">
+    <%= f.label :food_first, "材料１" %><br />
+    <%= f.text_field :food_first, placeholder: "例にんじん", id:"menu_food_first" %>
+  </div>
+
+  <div class="field">
+   <%= f.label :food_second, "材料２" %><br />
+    <%= f.text_field :food_second,placeholder: "例じゃがいも", id:"menu_food_second" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :spice, "調味料" %><br />
+    <%= f.text_area :spice, class: :form__text, id:"menu_spice" %>
+  </div>
+
+  <div class="recipe-ingredients">
+      <div class="mx-auto">
+        <%= f.fields_for :steps do |t| %>
+          <%= render "menus/step_fields", f: t %>
+        <% end %>
+      </div>
+
+      <div id="detail-association-insertion-point"></div>
+
+      <div class="col-10 mx-auto mt-2">
+        <%= link_to_add_association "+フォームを追加", f, :steps,
+        class: "btn btn-secondary btn-block",
+        data: {
+        association_insertion_node: '#detail-association-insertion-point',
+        association_insertion_method: 'after'
+        }%>
+      </div>
+  </div>
+
+
+  
+  <div class="actions">
+    <%= f.submit "投稿する", class: :form__btn  %>
+  </div>
+
+<% end %>

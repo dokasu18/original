@@ -50,7 +50,7 @@
 ### Association
 - belongs_to :user, through: :favorites
 - has_many :comments
-- has_one :step
+- has_man :step
 - has_many :favorites
 
 ## comments テーブル
