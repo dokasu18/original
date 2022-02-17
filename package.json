@@ -1,7 +1,8 @@
 {
-  "name":"original_recipe37255",
+  "name": "original_recipe37255",
   "private": true,
   "dependencies": {
+    "@nathanvda/cocoon": "^1.2.14",
     "@rails/actioncable": "^6.0.0-alpha",
     "@rails/activestorage": "^6.0.0-alpha",
     "@rails/ujs": "^6.0.0-alpha",
@@ -12,7 +13,7 @@
   "devDependencies": {
     "webpack-dev-server": "^4.7.3"
   },
- "engines" : {
-   "node": "14.18.2"
- }
+  "engines": {
+    "node": "14.18.2"
+  }
 }
