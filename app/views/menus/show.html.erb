@@ -8,7 +8,7 @@
    
        <% if user_signed_in? && current_user.id == @menu.user_id %>
         <div class="menu__manage">
-          <%= link_to "編集する", "#", class: :menu__btn %>
+          <%= link_to "編集する", edit_menu_path, class: :menu__btn %>
           <%= link_to "削除する", "#", method: :delete, class: :menu__btn %>
         </div>
         <% end %>

@@ -22,6 +22,14 @@ class MenusController < ApplicationController
     @steps = @menu.steps.includes(:menu)
   end
 
+  def edit
+    @menu = Menu.find(params[:id])
+  end
+
+  def update
+    @menu = Menu.find(params[:id])
+  end
+
   private
 
   def menu_params
