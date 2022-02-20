@@ -9,7 +9,7 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+ <body>
   <header class="header">
       <div class="inner">
         <div class="nav">
@@ -20,7 +20,7 @@
               <div class="nav__right" >
                <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: :nav__logout %>
                <%= link_to "新規投稿", new_menu_path, class: :nav__btn %>
-               <%= link_to "#{current_user.nickname}さん" , menus_path(current_user), class: :nav__btn%>
+               <%= link_to "#{current_user.nickname}さん" , menu_path(current_user), class: :nav__btn%>
               </div>
             <% else %>
               <div class="nav__right">
@@ -30,10 +30,10 @@
             <% end %>
         </div>
       </div>
-    </header>
+  </header>
     <%= yield %>
-    <footer class="footer">
+  <footer class="footer">
        <p class="copyright">Copyright © PROTO SPACE All rights reserved.</p>
-    </footer>
-  </body>
+  </footer>
+ </body>
 </html>
