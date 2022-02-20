@@ -17,7 +17,10 @@ class MenusController < ApplicationController
    end   
   end
 
-  
+  def show
+    @menu = Menu.find(params[:id])
+    @steps = @menu.steps.includes(:menu)
+  end
 
   private
 
