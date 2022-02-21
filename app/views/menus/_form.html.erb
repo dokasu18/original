@@ -14,6 +14,7 @@
     <%= f.text_area :advice_text, class: :form__text, id:"menu_advice_text" %>
   </div>
 
+  <div class="weight-bold-text">調理時間</div>
   <%= f.collection_select(:hour_id, Hour.all, :id, :name, {}, {class:"select-box", id:"menu-hour"}) %>
 
   <div class="field">
