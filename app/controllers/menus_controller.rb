@@ -1,4 +1,8 @@
 class MenusController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
+  before_action :set_item, only: [:show, :edit, :update, :destroy]
+  before_action :move_to_index, only: [:edit, :destroy]
+
   def index
     @menus = Menu.includes(:user)
   end
@@ -38,10 +42,27 @@ class MenusController < ApplicationController
     end
   end
 
+  def destroy
+    @menu.destroy
+    redirect_to root_path
+  end
+
   private
 
   def menu_params
     params.require(:menu).permit(:title, :advice_text, :hour_id, :food_first, :food_second, :spice, :image,
                                   steps_attributes:[:step_text, :step_number, :_destroy, :id]).merge(user_id: current_user.id)
   end
+
+
+  def set_item
+    @menu = Menu.find(params[:id])
+  end
+
+  def move_to_index
+    unless current_user.id == @menu.user_id
+      redirect_to action: :index
+    end
+  end
+
 end
