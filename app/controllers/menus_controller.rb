@@ -27,6 +27,10 @@ class MenusController < ApplicationController
     @comments = @menu.comments.includes(:user)
   end
 
+  def search
+    @menus = Menu.search(params[:keyword])
+  end
+
   def edit
     unless current_user.id == @menu.user_id
       redirect_to action: :index

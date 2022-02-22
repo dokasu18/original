@@ -18,4 +18,12 @@ class Menu < ApplicationRecord
     validates :image
   end
 
+  def self.search(search)
+    if search != ""
+      Menu.where(['food_first LIKE(?) OR food_second LIKE(?)',"%#{search}%","%#{search}%"])
+    else
+      Menu.all
+    end
+  end
+
 end
