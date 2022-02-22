@@ -1,0 +1,14 @@
+<div class="main">
+  <div class="inner">
+    <div class="user__wrapper">
+      <h2 class="page-heading">
+        <%= "#{@nickname}さんの投稿レシピ"%>
+      </h2>
+      <div class="user__card">
+        <%= render partial:'menus/menu', collection: @menus %>
+      </div>
+
+      <%= link_to "戻る", menus_index_path, class: :back__btn %>
+    </div>
+  </div>
+</div>

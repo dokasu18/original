@@ -22,21 +22,18 @@ class MenusController < ApplicationController
   end
 
   def show
-    @menu = Menu.find(params[:id])
     @steps = @menu.steps.includes(:menu)
     @comment = Comment.new
     @comments = @menu.comments.includes(:user)
   end
 
   def edit
-    @menu = Menu.find(params[:id])
     unless current_user.id == @menu.user_id
       redirect_to action: :index
     end
   end
 
   def update
-    @menu = Menu.find(params[:id])
     if @menu.update(menu_params) 
       redirect_to menu_path
     else

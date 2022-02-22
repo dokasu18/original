@@ -6,6 +6,6 @@
       <%= menu.food_first %>,
       <%= menu.food_second %>
     </p>
-    <%= link_to "by #{menu.user.nickname}", menu_path(menu.user_id), class: :card__user %>
+    <%= link_to "by #{menu.user.nickname}", user_path(menu.user_id), class: :card__user %>
   </div>
 </div>
