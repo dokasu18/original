@@ -234,7 +234,14 @@ a {
 }
 
 .comments_list{
+  list-style-type: square;
   padding-bottom: 5px;
+}
+
+.comment_user{
+  font-size: 16px;
+  color: #999;
+  text-decoration: underline;
 }
 
 .back__btn{

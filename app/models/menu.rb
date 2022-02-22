@@ -7,6 +7,7 @@ class Menu < ApplicationRecord
   has_one_attached :image
   has_many :steps, dependent: :destroy
   accepts_nested_attributes_for :steps, allow_destroy: true
+  has_many :comments
 
   with_options presence: true do
     validates :title

@@ -24,6 +24,8 @@ class MenusController < ApplicationController
   def show
     @menu = Menu.find(params[:id])
     @steps = @menu.steps.includes(:menu)
+    @comment = Comment.new
+    @comments = @menu.comments.includes(:user)
   end
 
   def edit
