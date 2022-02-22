@@ -4,7 +4,7 @@
       <p class="menu__hedding">
         <%= @menu.title %>
       </p>
-      <%= link_to "by #{@menu.user.nickname}", menus_path(@menu.user.id), class: :menu__user %>
+      <%= link_to "by #{@menu.user.nickname}", user_path(@menu.user.id), class: :menu__user %>
    
        <% if user_signed_in? && current_user.id == @menu.user_id %>
         <div class="menu__manage">
@@ -65,7 +65,7 @@
             <% @comments.each do |comment| %>
             <li class="comments_list">
                <%= comment.comment_text %>
-               <%= link_to comment.user.nickname, menus_path(comment.user.id), class: :comment_user %>  
+               <%= link_to comment.user.nickname, user_path(comment.user.id), class: :comment_user %>  
             </li>
             <% end %>
         </ul>
