@@ -1,0 +1,17 @@
+<main class="main">
+  <div class="inner">
+    <%= form_with(url: search_menus_path, local: true, method: :get, class: "search-form") do |form| %>
+     <%= form.text_field :keyword, placeholder: "投稿を検索する", class: "search-input" %>
+     <%= form.submit "検索", class: "search-btn" %>
+    <% end %>
+    <h2 class="page-heading">
+      検索結果
+    </h2>
+    <div class="card__wrapper">
+      <% @menus.each do |menu| %>
+       <%= render partial: "menu", locals: { menu: menu } %>
+      <% end %>
+    </div>
+    <%= link_to "戻る", menus_index_path, class: :back__btn %>
+  </div>
+</main>
